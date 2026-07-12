@@ -2,6 +2,7 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import authRotuer from "../routes/auth.route.js";
+import cors from 'cors'
 const app = express();
 
  
@@ -9,12 +10,16 @@ const app = express();
  app.use(express.json());
  app.use(express.urlencoded({ extended: true }));
  app.use(cookieParser());
- 
+ app.use(cors({
+  origin:"http://localhost:5173",
+  methods:["GET","POST","PUT","DELETE"],
+  credentials:true
+ }))
  app.get("/", (req, res) => {
    res.send("Hello World!");
  });
 
 
- app.use("/api/auth", authRotuer);
+ app.use("/api/auth",authRotuer);
 
  export default app;

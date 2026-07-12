@@ -9,8 +9,7 @@ const userSchema = new mongoose.Schema({
      },
 
      contact:{
-        type:String,
-        required:true,
+      type:String,required:true
      },
      password:{
         type:String,
@@ -29,7 +28,7 @@ const userSchema = new mongoose.Schema({
 })
 
   userSchema.pre("save", async function(){
-    if (this.isModified("password")) return 
+    if (!this.isModified("password")) return;
        
         const hash  = await bcrypt.hash(this.password, 10);
         this.password = hash;
