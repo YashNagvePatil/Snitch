@@ -10,12 +10,21 @@ import { useDispatch } from "react-redux";
         const data  = await register({email,contact,password,fullName,role})
 
         dispatch(setUser(data.user))
+
+        return data.user
     }
 
     async function handleLogin({email,password}){
+  
+         dispatch(setLoading(true)); 
+         dispatch(setError(null)); 
+
+
+
         const data = await login({email,password})
         dispatch(setUser(data.user))
 
+        return data
     }
 
     return {handleRegister,handleLogin}

@@ -24,6 +24,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
         
+       
     try {
       // Running the login service
       const response = await handleLogin({
@@ -31,10 +32,16 @@ const Login = () => {
         password: formData.password
       });
 
+      if (response?.error){
+        console.warn("login rejectoion",result.error)
+      }
+  
+      const dynacmicRole = response?.user?.role;
+
       // Checking the role safely from your api response structure (data.user.role)
-      if (response?.user?.role === "buyer") {
+      if (dynacmicRole === "buyer") {
         navigate('/');
-      } else if (response?.user?.role === "seller") {
+      } else if (dynacmicRole === "seller") {
         navigate('/seller/dashboard');
       }   
     } catch (error) {
