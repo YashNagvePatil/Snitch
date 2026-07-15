@@ -129,8 +129,8 @@ const Login = () => {
         <div className="mt-12 text-center">
           <p className="text-neutral-500 text-xs uppercase tracking-widest font-semibold">
             Not part of the crew?{' '}
-            <a href="/register" className="text-white border-b border-white/20 hover:border-white transition-all ml-1 font-bold">
-              Register Now
+            <a href="/api/auth/google" className="text-white border-b border-white/20 hover:border-white transition-all ml-1 font-bold">
+              Continue with Google 
             </a>
           </p>
         </div>
