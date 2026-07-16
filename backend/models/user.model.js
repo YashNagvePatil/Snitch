@@ -9,11 +9,13 @@ const userSchema = new mongoose.Schema({
      },
 
      contact:{
-      type:String,required:true
+      type:String,required:false
      },
      password:{
         type:String,
-        required:true
+        required: function() {
+           return !this.googleId;
+        }
      },
      role:{
         type:String,
@@ -23,6 +25,9 @@ const userSchema = new mongoose.Schema({
      fullName:{ 
          type:String,
         required:true 
+     },
+     googleId:{
+      type:String
      }
 
 })
