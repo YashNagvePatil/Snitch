@@ -32,10 +32,10 @@ const productSchema = new mongoose.Schema({
             type:String,
             required:true,
         },
-        alt:{
+       /* alt:{
             type:String,
             required:true
-        }
+        } */
        }
 ]
 
