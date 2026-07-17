@@ -125,12 +125,21 @@ const Login = () => {
           </button>
         </form>
 
+        
+
         {/* Alternative Action */}
         <div className="mt-12 text-center">
           <p className="text-neutral-500 text-xs uppercase tracking-widest font-semibold">
             Not part of the crew?{' '}
-            <a href="/api/auth/google" className="text-white border-b border-white/20 hover:border-white transition-all ml-1 font-bold">
-              Continue with Google 
+          <a
+              href="/api/auth/google"
+              className="w-full border-2 border-white/20 text-white py-4 px-6 font-bold uppercase tracking-wider text-xs flex items-center justify-center gap-3 transition-all duration-300 hover:border-white hover:bg-white/5 active:scale-[0.99]"
+            >
+              {/* Minimal Google Icon */}
+              <svg className="w-4 h-4 text-white fill-current" viewBox="0 0 24 24">
+                <path d="M12.24 10.285V14.4h6.887c-.648 2.41-2.519 4.114-5.136 4.114A5.73 5.73 0 0 1 8.2 12.786a5.73 5.73 0 0 1 5.79-5.729c1.47 0 2.782.533 3.805 1.491l3.226-3.226C18.916 3.323 16.666 2 13.99 2 8.472 2 4 6.472 4 11.99q0 .034.001.067a9.96 9.96 0 0 0 9.99 9.943c5.523 0 10.009-4.486 10.009-10.01 0-.667-.07-1.33-.207-1.975z"/>
+              </svg>
+              Continue with Google
             </a>
           </p>
         </div>
