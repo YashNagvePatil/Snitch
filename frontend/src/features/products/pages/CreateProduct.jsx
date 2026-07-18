@@ -13,8 +13,14 @@ import {
 } from '../components/Select';
 import { X, Upload, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
+import { useProduct } from '../hooks/useProduct';
+
+
 
 export default function ProductPage() {
+
+  const {} = useProduct()
+
   const [formData, setFormData] = useState({
     title: '',
     description: '',
