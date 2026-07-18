@@ -19,7 +19,7 @@ import { useProduct } from '../hooks/useProduct';
 
 export default function ProductPage() {
 
-  const {} = useProduct()
+  const {handelCreateProduct} = useProduct()
 
   const [formData, setFormData] = useState({
     title: '',
@@ -86,6 +86,7 @@ export default function ProductPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+
     if (!formData.title.trim()) {
       toast.error('Product title is required');
       return;
@@ -128,6 +129,7 @@ export default function ProductPage() {
       console.log('Product created:', productData);
       toast.success('Product created successfully!');
 
+      await handelCreateProduct(productData)
       setFormData({
         title: '',
         description: '',
@@ -139,6 +141,8 @@ export default function ProductPage() {
       if (fileInputRef.current) {
         fileInputRef.current.value = '';
       }
+    
+
     } catch (error) {
       toast.error('Failed to create product');
     } finally {

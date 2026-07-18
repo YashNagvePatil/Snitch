@@ -11,7 +11,7 @@ import { setSellerProducts } from "../state/product.slice"
          return data.product
     }
 
-    async function handelGetSellerProduct  (){
+    async function handelGetSellerProduct (){
 
         const data = await getSellerProduct()
         dispatch(setSellerProducts(data.products))
