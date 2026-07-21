@@ -24,7 +24,7 @@ import { useDispatch } from "react-redux";
         const data = await login({email,password})
         dispatch(setUser(data.user))
 
-        return data
+        return data.user
     }
 
     async function handleGetMe(){

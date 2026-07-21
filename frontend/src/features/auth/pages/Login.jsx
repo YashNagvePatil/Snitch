@@ -32,6 +32,15 @@ const Login = () => {
         password: formData.password
       });
 
+
+      if (response.role == "buyer" ){
+        navigate("/")
+      }
+        else if(response.role == "seller"){
+          navigate("/seller/dashboard")
+        }
+
+
       if (response?.error){
         console.warn("login rejectoion",result.error)
       }
