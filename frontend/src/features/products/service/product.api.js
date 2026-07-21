@@ -24,3 +24,8 @@ import axios from "axios"
         return response.data
        
   }
+
+  export async function getproductById(productId){
+        const response = await productApiInstance.get(`/details/${productId}`)
+         return response.data
+  }
