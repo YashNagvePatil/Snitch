@@ -66,3 +66,4 @@ export async function getProductDetails(req,res){
         })
     }
 }
+

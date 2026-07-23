@@ -47,4 +47,17 @@ router.post("/",authenticateSeller,upload.array('images',7),createProductValidat
   router.get("/detail/:id",getProductDetails)
 
 
+  /**
+   * @route POST /api/product/:productId/variants
+   * @description Add a new variant to a product
+   * @access Private (seller only) 
+   * 
+   */
+
+  router.post("/:productID/vairants", authenticateSeller,upload.array('images',7),
+ createProductValidator)
+  
+
+
+
 export default router
