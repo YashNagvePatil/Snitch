@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link } from 'react-router'
 import { useDispatch } from 'react-redux'
 import { useProduct } from '../hooks/useProduct'
 import { setProducts } from '../state/product.slice'
