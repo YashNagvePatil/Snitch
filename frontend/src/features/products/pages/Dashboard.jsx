@@ -20,7 +20,7 @@ import {
   AlertCircle 
 } from 'lucide-react';
 import { toast } from 'sonner';
-
+import { useNavigate } from 'react-router';
 // Mock Initial Products Data matching the brand vibe
 const INITIAL_PRODUCTS = [
   { id: 'snitch-091', title: 'Luxury Suede Bomber Jacket', sku: 'JKT-SUE-001', stock: 14, price: 189.00, sales: 48, status: 'active', image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=200&auto=format&fit=crop' },
@@ -35,6 +35,7 @@ export default function SellerDashboard() {
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
 
+  const navigate = useNavigate()
   // Interactive Action Handlers
   const handleDeleteProduct = (id, title) => {
     setProducts(prev => prev.filter(product => product.id !== id));
@@ -194,7 +195,7 @@ export default function SellerDashboard() {
                     <tr key={product.id} className="hover:bg-slate-900/20 group transition-colors">
                       {/* Title & Image Composite Column */}
                       <td className="py-4 px-6">
-                        <div className="flex items-center gap-4">
+                        <div onClick={()=>{navigate(`/seller/product/${product.id}`)}} className="flex items-center gap-4">
                           <div className="w-12 h-14 rounded bg-slate-900 overflow-hidden border border-slate-800 shrink-0">
                             <img src={product.image} alt={product.title} className="w-full h-full object-cover" />
                           </div>

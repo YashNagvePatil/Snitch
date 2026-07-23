@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router'
+import { useParams, Link, useNavigate } from 'react-router'
 import { useProduct } from '../hooks/useProduct'
 import { 
   Star, 
@@ -21,7 +21,7 @@ import {
 const ProductDetail = () => {
   const { productId } = useParams()
   const { handleGetproductById } = useProduct()
-
+  const navigate = useNavigate()
   // State Management
   const [product, setProduct] = useState(null)
   const [loading, setLoading] = useState(true)
