@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link } from 'react-router'
 import { useDispatch } from 'react-redux'
 import { useProduct } from '../hooks/useProduct'
 import { setProducts } from '../state/product.slice'
@@ -26,7 +26,7 @@ import {
 const SellerProductDetails = () => {
   const { productId } = useParams()
   const dispatch = useDispatch()
-  const { handleGetproductById } = useProduct()
+  const { handleGetproductById ,handleAddProductVariant} = useProduct()
 
   // Main Component State
   const [product, setProduct] = useState(null)
@@ -68,6 +68,9 @@ const SellerProductDetails = () => {
       stock: 18 
     }
   ])
+
+
+
 
   // Fetch Product Details
   async function fetchProductDetails() {
@@ -120,7 +123,7 @@ const SellerProductDetails = () => {
   }
 
   // Add Dynamic Variant with Validations
-  const handleAddDynamicVariant = (e) => {
+  const handleAddDynamicVariant = async (e) => {
     e.preventDefault()
 
     // Business Logic Rule: At least ONE attribute (Voltage, Color, or Size) is required
@@ -166,6 +169,8 @@ const SellerProductDetails = () => {
       stock: 10
     })
     setCurrentImageInput('')
+
+     await handleAddDynamicVariant(productId,variantToSave)
   }
 
   const handleDeleteVariant = (id) => {

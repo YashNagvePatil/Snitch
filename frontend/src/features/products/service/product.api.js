@@ -29,3 +29,20 @@ import axios from "axios"
         const response = await productApiInstance.get(`/details/${productId}`)
          return response.data
   }
+
+  export async function addProductVariant(productId,newProductVarient){
+
+      const formData = new FormData()
+
+      newProductVarient.images.forEach((image)=>{
+        formData.append(`images`,image.file)
+      })
+
+      formData.append("stock",newProductVarient.stock)
+      formData.append("priceAmount",newProductVarient.price.amount)
+      formData.append("attributes",JSON.stringify(newProductVarient.price.amount))
+
+      const response = await  productApiInstance.post(`/${productId}/variants`,formData)
+
+      return response.data
+  }
