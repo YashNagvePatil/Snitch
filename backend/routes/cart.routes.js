@@ -19,4 +19,7 @@ import { validateAddToCart } from "../validators/cart.validator.js";
 
 router.post("/add/:productId/:variantId",authenticateUser,validateAddToCart,addToCart) 
 
+router.get('/',authenticateUser,)
+
+
 export default router;

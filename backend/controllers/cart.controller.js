@@ -70,3 +70,19 @@ import productModel from "../models/product.model.js"
           })
          }
   }
+
+  export const getCart = async (req,res) =>{
+       const user = req.user
+
+       let cart = await cartModel.findOne({user:user._id}).populate("itmes.product")
+
+       if ( !cart ){
+          cart = await cartModel.create({user:user._id})
+       }
+
+       return res.status(200).json({
+          message:"cart retrived succesfully",
+          success:true,
+          data:cart
+       })
+  }
