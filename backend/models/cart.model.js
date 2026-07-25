@@ -33,3 +33,7 @@ const cartItemSchema = new mongoose.Schema({
             }
          ]
 })
+
+ const  cartModel  = mongoose.model('cart',cartItemSchema)
+
+ export default cartModel
