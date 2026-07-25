@@ -1,5 +1,7 @@
 import express from "express"
 import authenticateUser from "../middlewares/auth.middleware.js"
+import { addToCart } from "../controllers/cart.controller.js";
+import { validateAddToCart } from "../validators/cart.validator.js";
 
 
 
@@ -15,6 +17,6 @@ import authenticateUser from "../middlewares/auth.middleware.js"
     * @argument quantity - quantity of the item to add (optional ,default:1)
     */
 
-router.post("/add/:productId/:variantId",authenticateUser,) 
+router.post("/add/:productId/:variantId",authenticateUser,validateAddToCart,addToCart) 
 
 export default router;
